@@ -15,7 +15,9 @@ import org.springframework.mock.web.MockHttpServletResponse;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class RequestResponseLoggingFilterTest {
 
     private static final Logger logger = LoggerFactory.getLogger(RequestResponseLoggingFilterTest.class);
@@ -45,6 +47,6 @@ public class RequestResponseLoggingFilterTest {
         verify(filterChain, times(1)).doFilter(request, response);
 
         // Log the response status
-        logger.info("Response status after filter: {}", response.getStatus());
+        log.info("Response status after filter: {}", response.getStatus());
     }
 }

@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.example.democust.model.Customer;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CustKafkaProducer {
 	
-	private static final Logger LOGGER =
-	   		 LoggerFactory.getLogger(CustKafkaProducer.class);
-	
-	
+		
 	private KafkaTemplate<String, Customer> kafkaTemplate;
 
 	public CustKafkaProducer(KafkaTemplate<String, Customer> kafkaTemplate) {
@@ -27,7 +27,7 @@ public class CustKafkaProducer {
 	
 	public void sendMessage(Customer data) {
 		
-		LOGGER.info(String.format("Message sent %s", data));
+		log.info(String.format("Message sent %s", data));
 		Message<Customer>  message=MessageBuilder
 				.withPayload(data)
 				.setHeader(KafkaHeaders.TOPIC, "javaguides_json")

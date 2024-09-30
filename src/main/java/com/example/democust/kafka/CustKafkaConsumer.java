@@ -7,15 +7,16 @@ import org.springframework.stereotype.Service;
 
 import com.example.democust.model.Customer;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CustKafkaConsumer {
 	
-	private static final Logger LOGGER =
-	   		 LoggerFactory.getLogger(CustKafkaConsumer.class);
-	
+		
 	@KafkaListener(topics="javaguides_json",groupId = "myGroup")
 	public void consume(Customer customer) {
-		LOGGER.info(String.format("Message receive -> %s", customer));
+		log.info(String.format("Message receive -> %s", customer));
 	}
 
 }

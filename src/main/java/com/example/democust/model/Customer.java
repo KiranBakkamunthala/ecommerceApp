@@ -14,13 +14,19 @@ import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer implements Serializable{
-
-    @Id
+public class Customer implements Serializable{ 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
@@ -44,47 +50,8 @@ public class Customer implements Serializable{
     private String personalEmail;
 
     @ElementCollection
+   // @JsonIgnore
+    //@JsonProperty("familyMembers")
     private List<String> familyMembers;
-    
-
-	public List<String> getFamilyMembers() {
-		return familyMembers;
-	}
-
-	public void setFamilyMembers(List<String> familyMembers) {
-		this.familyMembers = familyMembers;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getOfficeEmail() {
-		return officeEmail;
-	}
-
-	public void setOfficeEmail(String officeEmail) {
-		this.officeEmail = officeEmail;
-	}
-
-	public String getPersonalEmail() {
-		return personalEmail;
-	}
-
-	public void setPersonalEmail(String personalEmail) {
-		this.personalEmail = personalEmail;
-	}
     
 }

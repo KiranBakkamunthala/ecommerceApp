@@ -28,36 +28,11 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	@NotNull
+   	@NotNull
     private String bookTitle;
     
     private Double bookPrice;
     
     private Integer bookQuantity;
-    
-	public String getBookTitle() {
-		return bookTitle;
-	}
-	public void setBookTitle(String bookTitle) {
-		this.bookTitle = bookTitle;
-	}
-	public Double getBookPrice() {
-		return bookPrice;
-	}
-	public void setBookPrice(Double bookPrice) {
-		this.bookPrice = bookPrice;
-	}
-	public Integer getBookQuantity() {
-		return bookQuantity;
-	}
-	public void setBookQuantity(Integer bookQuantity) {
-		this.bookQuantity = bookQuantity;
-	}
-    
+    	    
 }

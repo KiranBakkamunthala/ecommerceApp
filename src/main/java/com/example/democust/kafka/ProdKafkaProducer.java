@@ -9,13 +9,12 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 import com.example.democust.model.Product;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class ProdKafkaProducer {
-	
-	private static final Logger LOGGER =
-	   		 LoggerFactory.getLogger(CustKafkaProducer.class);
-	
-	
+		
 	private KafkaTemplate<String, Product> kafkaTemplate;
 
 	public ProdKafkaProducer(KafkaTemplate<String, Product> kafkaTemplate) {
@@ -26,7 +25,7 @@ public class ProdKafkaProducer {
 	
 	public void sendMessage(Product data) {
 		
-		LOGGER.info(String.format("Message sent %s", data));
+		log.info(String.format("Message sent %s", data));
 		Message<Product>  message=MessageBuilder
 				.withPayload(data)
 				.setHeader(KafkaHeaders.TOPIC, "java_json")

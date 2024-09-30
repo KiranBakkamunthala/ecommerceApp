@@ -18,10 +18,11 @@ import com.example.democust.service.ProductService;
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
-
+    
+	
 	private ProdKafkaProducer prodKafkaProducer;
 
-	@Autowired
+	
 	public ProductController(ProdKafkaProducer prodKafkaProducer) {
 		this.prodKafkaProducer = prodKafkaProducer;
 	}

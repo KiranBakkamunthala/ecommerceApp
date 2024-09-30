@@ -6,14 +6,15 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import com.example.democust.model.Product;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class ProdKafkaConsumer {
-	private static final Logger LOGGER =
-	   		 LoggerFactory.getLogger(ProdKafkaConsumer.class);
-	
+		
 	@KafkaListener(topics="java_json",groupId = "myGroup")
 	public void consume(Product product) {
-		LOGGER.info(String.format("Message receive -> %s", product));
+		log.info(String.format("Message receive -> %s", product));
 	}
 
 }

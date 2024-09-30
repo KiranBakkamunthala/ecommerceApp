@@ -12,7 +12,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@Component
+//@Component
 public class RequestResponseLoggingFilter extends OncePerRequestFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(RequestResponseLoggingFilter.class);
@@ -43,7 +43,5 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
 
         // Log response details
         logger.info("Response Status: {}", response.getStatus());
-    }
-
-    // You don't need to override the init or destroy methods
+    }    
 }

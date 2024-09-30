@@ -20,9 +20,10 @@ import com.example.democust.service.CustomerService;
 @RequestMapping("/api/customers")
 public class CustomerController {
 
+	
 	private CustKafkaProducer custKafProducer;
 
-	@Autowired
+	
 	public CustomerController(CustKafkaProducer custKafProducer) {
 		this.custKafProducer = custKafProducer;
 	}
